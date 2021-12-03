@@ -12,10 +12,7 @@ public class Util {
 
     public static Connection getConnection() {
         try {
-            //Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            //Statement statement = connection.createStatement();
-            //System.out.println("Connection successful");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -11,7 +11,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public UserDaoJDBCImpl() {
     }
 
-    private Connection conn = Util.getConnection();
+    private final Connection conn = Util.getConnection();
 
     public void createUsersTable() {
         try {
@@ -24,7 +24,7 @@ public class UserDaoJDBCImpl implements UserDao {
                     " PRIMARY KEY (id));";
 
             statement.executeUpdate(createTable);
-            //System.out.println("Таблица создана успешно");
+            System.out.println("Таблица создана успешно");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = conn.createStatement();
             String SQL = "DROP TABLE IF EXISTS users";
             statement.executeUpdate(SQL);
-            //System.out.println("Таблица успешно удалена");
+            System.out.println("Таблица успешно удалена");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -58,7 +58,6 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = conn.createStatement();
             String removeUser = "DELETE FROM users WHERE ID = id";
             statement.executeUpdate(removeUser);
-            //System.out.println("User с id " + id + " удален из таблицы");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -89,7 +88,6 @@ public class UserDaoJDBCImpl implements UserDao {
             Statement statement = conn.createStatement();
             String SQL = "DELETE FROM users";
             statement.executeUpdate(SQL);
-            //System.out.println("Данные таблицы users удалены");
         } catch (SQLException e) {
             e.printStackTrace();
         }
