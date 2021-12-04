@@ -21,8 +21,6 @@ public class Util {
     public void UserDAOJDBCConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-//            Driver driver = new FabricMySQLDriver();
-//            DriverManager.registerDriver(driver);
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
